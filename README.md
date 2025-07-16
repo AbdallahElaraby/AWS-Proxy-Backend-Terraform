@@ -73,6 +73,35 @@ Once deployed:
   ```
 
 ---
+---
+
+## ⚙️ Provisioning with `remote-exec`, `file`, and SSH
+
+This project uses Terraform provisioners to automate software installation and configuration:
+
+### 🔹 Proxy EC2 Instance (Public Subnet)
+- **`file` Provisioner**: Uploads `proxyscript.sh` to the instance.
+- **`remote-exec` Provisioner**: Executes the script to:
+  - Install and configure NGINX as a reverse proxy
+  - Forward incoming traffic to the backend's private IP
+
+### 🔹 Backend EC2 Instance (Private Subnet)
+- **`file` Provisioner**: Uploads `backendscript.sh` and Flask app files to the instance.
+- **`remote-exec` Provisioner**: Runs the script to:
+  - Install dependencies
+  - Launch the Flask web server (gunicorn or similar)
+
+### 🔐 Secure SSH Access
+- Terraform connects to the **public proxy instance** using SSH (via `connection` block).
+- From the proxy, it uses `remote-exec` and internal routing to reach the **private backend** securely.
+- This avoids exposing the private EC2 to the public internet.
+
+> ✅ You can think of it as:  
+> Terraform → [SSH to Proxy] → [Remote Execute on Backend via Internal IP]
+
+This approach ensures all backend provisioning is secure and fully automated without direct public exposure.
+
+---
 
 ## 🧪 Flask App (Backend)
 
