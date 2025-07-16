@@ -30,3 +30,6 @@ flask_website/cuteblog-flask/cute.db
 .terraform/
 *.tfstate*
 .terraform.lock.hcl
+.terraform/
+*.tfstate*
+.terraform.lock.hcl
