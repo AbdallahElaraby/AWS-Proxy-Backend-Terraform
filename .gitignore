@@ -26,3 +26,4 @@ override.tf.json
 
 # VSCode
 .vscode/
+flask_website/cuteblog-flask/cute.db
