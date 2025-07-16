@@ -74,7 +74,7 @@ Once deployed:
 
 ---
 
-## ⚙️ Provisioning with `remote-exec`, `file`, and SSH
+## ⚙️ Provisioning with `remote-exec`, `local-exec`, and `file`
 
 This project uses Terraform provisioners to automate software installation and configuration:
 
