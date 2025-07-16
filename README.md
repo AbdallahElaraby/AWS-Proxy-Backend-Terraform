@@ -11,7 +11,7 @@ This project sets up a **secure 2-tier web application architecture** using **Te
 ---
 
 ## 📌 Architecture
-![BackEndApp](./arch.png)
+![BackEndApp](./arch.PNG)
 
 - **NGINX** reverse proxy routes incoming HTTP requests to the private backend.
 - **Backend** runs a Flask app and is not exposed to the public internet.
