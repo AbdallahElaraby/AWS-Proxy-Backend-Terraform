@@ -73,7 +73,6 @@ Once deployed:
   ```
 
 ---
----
 
 ## ⚙️ Provisioning with `remote-exec`, `file`, and SSH
 
